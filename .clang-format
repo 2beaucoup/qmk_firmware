@@ -1,0 +1,3 @@
+BreakBeforeBraces: Attach
+IndentCaseLabels: true
+ColumnLimit: 120
