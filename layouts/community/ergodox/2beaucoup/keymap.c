@@ -8,8 +8,8 @@
 #include "keymap_nordic.h"
 
 #define BASE 0
-#define NAVI 1
-#define CODE 2
+#define CODE 1
+#define NAVI 2
 
 enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE, // can always be here
@@ -22,10 +22,10 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* clang-format off */
     [BASE] = KEYMAP(
-        KC_GRV, KC_1, KC_2, KC_3, KC_4, KC_5, KC_LEFT, KC_TRNS,
-        KC_Q, KC_W, KC_E, KC_R, KC_T, KC_HOME,
-        KC_TRNS, SFT_T(KC_A), CTL_T(KC_S), ALT_T(KC_D), GUI_T(KC_F), KC_G,
-        KC_TRNS, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_END,
+        KC_PWR, KC_1, KC_2, KC_3, KC_4, KC_5, KC_LEFT, KC_TRNS,
+        KC_SLEP, KC_W, KC_E, KC_R, KC_T, KC_HOME,
+        KC_WAKE, SFT_T(KC_A), CTL_T(KC_S), ALT_T(KC_D), GUI_T(KC_F), KC_G,
+        KC_EJCT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_END,
         ALL_T(KC_NO), KC_TRNS, KC_TRNS, KC_TRNS, LT(1, KC_DELETE),
 
         KC_MEDIA_PREV_TRACK, KC_MEDIA_NEXT_TRACK, KC_MS_WH_UP, KC_SPC, KC_BSPC, KC_MS_WH_DOWN,
@@ -38,8 +38,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
         KC_AUDIO_MUTE, KC_MEDIA_PLAY_PAUSE, KC_AUDIO_VOL_UP, KC_AUDIO_VOL_DOWN, KC_TAB, KC_ENT),
 
-    [NAVI] = KEYMAP(
-        KC_SYSTEM_POWER, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+    [CODE] = KEYMAP(
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_TRNS,
         KC_TRNS, SFT_T(KC_1), CTL_T(KC_2), ALT_T(KC_3), GUI_T(KC_4), KC_5,
         KC_TRNS, KC_GRV, KC_EQL, KC_MINS, KC_BSLASH, KC_TRNS, KC_TRNS,
@@ -55,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
 
-    [CODE] = KEYMAP(
+    [NAVI] = KEYMAP(
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_MS_UP, KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, KC_TRNS,
