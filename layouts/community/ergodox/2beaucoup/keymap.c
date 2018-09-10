@@ -13,7 +13,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_SLEP,      KC_Q,        KC_W,        KC_E,        KC_R,        KC_T,  KC_HOME,
         KC_WAKE,      SFT_T(KC_A), CTL_T(KC_S), ALT_T(KC_D), GUI_T(KC_F), KC_G,
         KC_EJCT,      KC_Z,        KC_X,        KC_C,        KC_V,        KC_B,  KC_END,
-        ALL_T(KC_NO), KC_TRNS,     KC_TRNS,     KC_TRNS,     LT(1, KC_DELETE),
+        ALL_T(KC_NO), KC_TRNS,     KC_TRNS,     KC_TRNS,     LT(1, KC_TAB),
 
         KC_MEDIA_PREV_TRACK, KC_MEDIA_NEXT_TRACK, KC_MS_WH_UP, KC_SPC, KC_BSPC, KC_MS_WH_DOWN,
 
@@ -23,7 +23,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_PGDN,       KC_N,  KC_M,          KC_COMM,      KC_DOT,       KC_SLASH,        KC_TRNS,
                               LT(2, KC_ESC), UML,          KC_TRNS,      KC_TRNS,         MEH_T(KC_NO),
 
-        KC_AUDIO_MUTE, KC_MEDIA_PLAY_PAUSE, KC_AUDIO_VOL_UP, KC_AUDIO_VOL_DOWN, KC_TAB, KC_ENT),
+        KC_AUDIO_MUTE, KC_MEDIA_PLAY_PAUSE, KC_AUDIO_VOL_UP, KC_AUDIO_VOL_DOWN, KC_DEL, KC_ENT),
 
     [CODE] = KEYMAP(
         KC_TRNS, KC_TRNS,     KC_TRNS,     KC_TRNS,     KC_TRNS,     KC_TRNS, KC_TRNS,
@@ -43,11 +43,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
 
     [NAVI] = KEYMAP(
-        KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS,    KC_TRNS,     KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS,    KC_MS_UP,   KC_TRNS,     KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS,    KC_TRNS,     KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS,    KC_MS_BTN1, KC_MS_BTN2,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_MS_UP,   KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_LSFT, KC_LCTL, KC_LALT,    KC_LGUI, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_MS_BTN1, KC_MS_BTN2,
 
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
 
@@ -79,13 +79,10 @@ uint32_t layer_state_set_user(uint32_t state) {
 
   uint8_t layer = biton32(state);
 
-  ergodox_board_led_off();
   ergodox_right_led_1_off();
   ergodox_right_led_2_off();
   ergodox_right_led_3_off();
   switch (layer) {
-    case 0:
-      break;
     case 1:
       ergodox_right_led_1_on();
       break;
